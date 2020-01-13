@@ -12,6 +12,49 @@ urlcolor: blue
 ---
 
 
+## Rough outline of version control workshop
+
+\begin{enumerate}
+\setlength\itemsep{0.8em}
+\item \textbf{14:00} What is version control, and why use it?
+\item \textbf{14:20} Getting set up -- good file management
+\item \textbf{14:30} The \href{https://www.gitkraken.com/}{GitKraken} interface and simple commits
+\item \textbf{15:00} Setting up \href{https://www.github.com}{GitHub}, pushing and pulling
+\item \textbf{15:30} Branching using \href{https://www.gitkraken.com/}{GitKraken}
+\item \textbf{16:00} Merging and merge conflicts
+\item \textbf{16:30} Independent work using version control
+\end{enumerate}
+
+## What is version control, and why use it?
+
+\begin{center}
+\includegraphics[width=300px]{images/duthiefalcy.png}
+\end{center}
+
+## What is version control, and why use it?
+
+\begin{center}
+\includegraphics[width=330px]{images/vc_timeline_intro.png}
+\end{center}
+
+## What is version control, and why use it?
+
+\begin{center}
+\includegraphics[width=330px]{images/GitKraken_vc_timeline.png}
+\end{center}
+
+## What is version control, and why use it?
+
+\begin{center}
+\includegraphics[width=330px]{images/GitKraken_branching.png}
+\end{center}
+
+## What is version control, and why use it?
+
+\begin{center}
+\includegraphics[width=330px]{images/GitKraken_collaborate.png}
+\end{center}
+
 ## What version control software does
 
 \begin{itemize}
