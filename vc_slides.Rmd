@@ -1,7 +1,8 @@
 ---
 title: "Version control for reproducible science"
+subtitle: "https://stir.ac.uk"
 author: "Brad Duthie"
-date: "4 December 2019"
+date: "16 January 2020"
 output:
   beamer_presentation: default
 header-includes:
@@ -31,37 +32,13 @@ urlcolor: blue
 \includegraphics[width=300px]{images/duthiefalcy.png}
 \end{center}
 
-## What is version control, and why use it?
-
-\begin{center}
-\includegraphics[width=330px]{images/vc_timeline_intro.png}
-\end{center}
-
-## What is version control, and why use it?
-
-\begin{center}
-\includegraphics[width=330px]{images/GitKraken_vc_timeline.png}
-\end{center}
-
-## What is version control, and why use it?
-
-\begin{center}
-\includegraphics[width=330px]{images/GitKraken_branching.png}
-\end{center}
-
-## What is version control, and why use it?
-
-\begin{center}
-\includegraphics[width=330px]{images/GitKraken_collaborate.png}
-\end{center}
-
 ## What version control software does
 
 \begin{itemize}
 \setlength\itemsep{1em}
 \item Software that records changes you make to files over time
 \begin{itemize}
-\item Manage different {\it versions} of files
+\item Manage different {\it versions} of files (no need to 'Save As...')
 \item Recover old files, keep track of file changes
 \item Collaborate with others on shared files
 \end{itemize}
@@ -81,22 +58,62 @@ urlcolor: blue
 \end{itemize}
 \end{itemize}
 
+## Inside of a project on version control
+
+\begin{center}
+\includegraphics[width=280px]{images/RMS_rep_eg.png}
+\end{center}
+
+\vspace{5mm}
+
+Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscript drafts, etc.
+
+## Full annotated timeline of folder changes (GitHub)
+
+\begin{center}
+\includegraphics[width=300px]{images/vc_timeline_intro.png}
+\end{center}
+
+## Full annotated timeline of folder changes (GitKraken)
+
+\begin{center}
+\includegraphics[width=300px]{images/GitKraken_vc_timeline.png}
+\end{center}
+
+## Parallel versions ('branches') of a folder (GitKraken)
+
+\begin{center}
+\includegraphics[width=300px]{images/GitKraken_branching.png}
+\end{center}
+
+## Collaborative history or a shared folder (GitKraken)
+
+\begin{center}
+\includegraphics[width=300px]{images/GitKraken_collaborate.png}
+\end{center}
+
+## Clear breakdown of what has changed (GitKraken)
+
+\begin{center}
+\includegraphics[width=300px]{images/GitKraken_filechange.png}
+\end{center}
+
 ## Version control makes science easier
 
 
 \begin{itemize}
-\setlength\itemsep{1em}
-\item Organise files and avoid having to 'save as' multiple versions 
+\setlength\itemsep{0.8em}
+\item \textbf{Organises files} by avoiding 'save as' multiple versions 
 \begin{itemize}
 \item analysis\_1.R
 \item analysis\_2.R
 \item analysis\_FINAL.R
 \item analysis\_FINAL\_no\_really\_this\_time.R
 \end{itemize} \pause
-\item Have a clear history of what you have done, when, and why (through commit comments)
-\item Never worry about losing your data, analysis, or writing when integrating with \href{http://github.com}{GitHub}
+\item \textbf{Provides a clear history} of what you have done, when, and why (through commit comments) \pause
+\item \textbf{Saves time} by avoiding loss of data, analysis, or writing when integrating with \href{http://github.com}{GitHub} \pause
+\item \textbf{Gives peace of mind} to experiment by removing any fear of breaking something that you know works
 \end{itemize}
-
 
 ## Version control can help open science
 
@@ -147,25 +164,7 @@ urlcolor: blue
 \end{columns}
 
 
-## Objectives: using version control
-
-\textbf{By the end of today you will be able to use git with \href{http://github.com}{GitHub} and \href{http://gitkraken.com}{GitKraken} to manage your projects with version control.} \pause
-
-\begin{itemize}
-\setlength\itemsep{1em}
-\item Understand key concepts of version control
-\item Perform basic tasks in GitHub and GitKraken
-\begin{itemize}
-\item Staging and committing files
-\item Pushing to and pulling from GitHub
-\item Branching, merging, \& resolving merge conflicts
-\end{itemize}
-\end{itemize} \pause
-
-\textbf{Discuss, share, and get additional help by \href{https://github.com/StirlingCodingClub/version_control/issues}{raising an issue} in the \href{https://github.com/StirlingCodingClub/version_control}{version\_control repository} on the \href{https://github.com/StirlingCodingClub}{Stirling Coding Club} GitHub organisation.}
-
 ## Why focus on using GitKraken?
-
 
 \begin{columns}
 \begin{column}{0.45\textwidth}  
@@ -191,4 +190,23 @@ urlcolor: blue
 \vspace{2mm}
 
 \textbf{\href{https://stirlingcodingclub.github.io/version_control/vc_notes.html}{Accompanying notes to these slides} are available in the \href{https://github.com/StirlingCodingClub/version_control}{version\_control} repository, and include instructions for using the command line interface, and for editing directly in GitHub.}
+
+## Objectives: using version control
+
+\textbf{Guided walkthrough of setting up a project in \href{http://github.com}{GitHub} and \href{http://gitkraken.com}{GitKraken} to manage a project with version control.} \pause
+
+\vspace{4mm}
+\hrule
+\vspace{4mm}
+
+\textbf{Slides:} https://bradduthie.github.com/version_control/vc_slides.pdf
+
+\textbf{Notes:} https://bradduthie.github.com/version_control/vc_notes.html
+
+\vspace{4mm}
+\hrule
+\vspace{4mm}
+
+\textbf{Discuss, share, and get additional help by \href{https://github.com/StirlingCodingClub/version_control/issues}{raising an issue} in the \href{https://github.com/StirlingCodingClub/version_control}{version\_control repository} on the \href{https://github.com/StirlingCodingClub}{Stirling Coding Club}.}
+
 
