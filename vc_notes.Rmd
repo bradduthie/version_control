@@ -10,13 +10,19 @@ Contents
 
 ********************************************************************************
 
-**Note: Please think of this document as a living document, which you are free to improve (like a [wiki](https://en.wikipedia.org/wiki/Wiki)) with minor edits, new sections that others might find useful (e.g., using git directly in Rstudio), or [additional resources](#whatelse) that you find that you think others might also find useful. After reading through this, you should have a working understanding of what version control is and why it is useful. You should also be able to start using version control in your own work through a combination of [GitHub](http://github.com) and either [GitKraken](http://gitkraken.com) or the command line interface.**
+**These notes are provided as a guided tutorial to accompany a workshop focused on the use of version control to improve workflow in scientific research, but they can also be used as a standalone introduction to the subject. These notes will help the reader begin using git version control software and the [GitHub](http://github.com) hosting service. An introduction to git is provided using the commandline interface and [GitKraken](http://gitkraken.com) software, but it is only necessary to learn one to be able to use git effectively. After finishing this tutorial, the reader should be able to use version control in their own scientific workflow.**
 
 ********************************************************************************
 
 - [Introduction: What is version control?](#what_is_vc)
 - [Things to do before getting started](#todo)
-- [How to use git in GitHub](#how_use_gh)
+
+    1. [Signing up with a GitHub account](#sign_up_GitHub)
+    2. [Downloading GitKraken software](#Download_GitKraken)
+    3. [Putting project files in a common folder](#place_files)
+    4. [Understanding folder structure](#folder_structure)
+    5. [Understanding text versus binary files](#text_binary)
+
 - [Using GitKraken & Command Line Interface (CLI)](#GK_CLI)
 
     1. [Initialising a git repository](#step1)
@@ -26,6 +32,7 @@ Contents
     5. [Branches in git](#branches)
     6. [Dealing with merge conflicts](#step6)
 
+- [How to use git in GitHub](#how_use_gh)
 - [Additional resources](#whatelse)
 
 ********************************************************************************
@@ -55,45 +62,41 @@ First, I am going to briefly talk about how to use git entirely *within* GitHub 
 <a name="todo">Things to do before getting started </a>
 ================================================================================
 
-If you are just starting out with git, I recommend [signing up with a GitHub account](github.com/join), then [downloading GitKraken](https://www.gitkraken.com/download). You can do everything that I explain below with only these two tools. For those who prefer to use the command line interface, I have included instructions for how to do this below too. Learning to use git in the command line is probably useful if you already use the command line in your normal work flow (or if you are interested in doing so!), but if it's not something that you work with already, learning it here is probably more trouble than it's worth.
+Although not strictly necessary, signing up with a GitHub account and downloading GitKraken will make it easier to start using git. Similarly, work flow with git will be much easier if you have everything associated with a particular project organised into a single folder on your computer (including data, analysis files, notes, manuscript drafts, etc.). Lastly, there are some key details about how files are stored and differentiated that are useful to know.
+
+1. <a name="sign_up_GitHub">Signing up with a GitHub account</a>
+--------------------------------------------------------------------------------
+
+If you are just starting out with git, I recommend [signing up with a GitHub account](github.com/join). GitHub is a free site where you can host your own projects and collaborate with other researchers. It is mostly known as a host for code and software development, but any projects that are version controlled with git can also be hosted here. Chances are, if you have an R package that you reglularly use (e.g., [ggplot2](https://github.com/tidyverse/ggplot2), [vegan](https://github.com/vegandevs/vegan), [lme4](https://github.com/lme4/lme4)), the the code and entire development history is publicly available, along with a [issues board](https://github.com/lme4/lme4/issues) containing known bugs, questions, and requests for new features.
+
+![](images/github_create_account.png)
+
+Select a username and password to [sign up](github.com/join), then click on the button to select a plan. A free plan is likely to be sufficient for all of your needs, but if you are a student, then you can also [apply for a student developer pack](https://help.github.com/en/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack). In either case, you will be able to create an unlimited number of public and private (i.e., only visible to you) repositories and upload them to GitHub.
+
+2. <a name="Download_GitKraken">Download GitKraken software</a>
+--------------------------------------------------------------------------------
+
+I recommend [downloading GitKraken](https://www.gitkraken.com/download) for getting started. By downloading GitKraken, you will automatically also download git. GitKraken itself is a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface) to make git much easier to use; no command line is necessary, so all of your version control needs are taken care of in a graphically rich point and click interface. For those who prefer to use the command line interface, I have included instructions for how to do this below too. Learning to use git in the command line is probably useful if you already use the command line in your normal work flow (or if you are interested in doing so!), but if it's not something that you work with already, learning it here is probably more trouble than it's worth.
+
+GitKraken is also free, and it easily integrates with GitHub and your GitHub account. And if you are a student and apply for the [GitHub student developer pack](https://help.github.com/en/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack) as suggested [above](#sign_up_GitHub), the pack will come with a free version of [GitKraken Pro](https://www.gitkraken.com/student-resources).
 
 
-<a name="how_us_gh">How to use git in GitHub</a>
-================================================================================
+3. <a name="place_files">Putting project files in a common folder</a>
+--------------------------------------------------------------------------------
 
-In [GitHub](http://github.com), the process of creating, making changes to, and comitting files is fairly straightforward, and it's possible to create and manage a repository entirely within GitHub in the browser. The downside to this approach is that you cannot actually run code in GitHub, as you can in Rstudio or some other program. You cannot create a DOCX or PDF file for a manuscript, or run your R analysis, in GitHub. Hence, using git in GitHub should probably be thought about as an occasional tool to use for editing when away from your office computer, or just need a very quick fix to something to pull from GitHub later. To create a new file, simply go to your GitHub repository and click the button "Create new file".
+It is important to know where your project folder and all relevant files are stored on your computer. This might sound obvious, but it is actually easy to lose track of this information with a lot of software. Some programs can make it easy to not pay attention to where something is being saved or opened from, e.g., by picking a reasonable default location to save or having a File pulldown menu that lists 'Recent files' to open. Nevertheless, version control aside, it is good practice to always know where files are located your computer, and it is generally more efficient to keep all of the files within a particular project in the same folder.
 
-![](images/GitHub_create_file.png)
 
-<br>
+4. <a name="folder_structure">Understanding folder structure</a>
+--------------------------------------------------------------------------------
 
-This will take you to a new screen where you can start writing directly in your browser, and you can save the file as whatever name you want. When you're finished, you can scroll to the bottom of the page to make a commit.
 
-![*In general, it is a good idea to try to come up with an informative commit message. Traditionally, git commit messages are written in present tense.*](images/GitHub_commit.png)
+5. <a name="text_binary">Understanding text versus binary files</a>
+--------------------------------------------------------------------------------
 
-<br>
 
-Unlike using tools outside of your browser such as GitKraken or the command line, there is no need to [push to or pull](#step4) anything from GitHub because you're making changes *directly to GitHub*, so the edits made to files are automatically saved into GitHub. **It is important to note, however, that changes you make on GitHub need to be pulled** (i.e., downloaded) onto your local computer *before* you start making changes locally -- e.g., in Rstudio. They won't appear automatically.
 
-With no need to push or pull in GitHub itself, we can move to using branches in GitHub. You can create a branch whenever you edit a file by selecting the 'Create a **new branch** for this commit and start a pull request' radio button below your commit message. 
 
-![](images/GitHub_create_new_branch.png)
-
-<br>
-
-Creating a new branch will immediately take you to the pull request screen below. This will send a request to merge the change that you've just made with the master branch (i.e., a '[pull request](https://github.com/StirlingCodingClub/version_control/pull/1)') -- it let's you know that the branches can be merged without any [merge conflict](#step6), and shows the change that you made at the bottom of the secreen (removing 'Tomatoes' and adding 'Avacodo'). 
-
-![](images/GitHub_branching.png)
-
-<br>
-
-There is no need to create a pull request if you do not want to -- the change that you have made has already created a new branch. You now have two different versions of the repository, and can switch between them. To switch between branches in GitHub, go to [the repository](https://github.com/StirlingCodingClub/version_control) and find the pull down that says 'Branch:'. You should be able to switch to the branch 'avocado' to see what the repository looks like on this branch. 
-
-![*An example of switching to a different branch*](images/GitHub_branch_2.png)
-
-<br>
-
-To merge the 'avacado' branch into the base 'master' branch, you would go into the [pull request](https://github.com/StirlingCodingClub/version_control/pull/1) and click the green button 'Merge pull request'. I will explain merging more in the next section explaining [branching](#branches) and [merge conflicts](#step6). In the mean time, note that we now have two different versions (branches) of the same repository, in which the file 'list.md' differs. In the master branch, the last item on our list is 'Tomatoes', whereas in the avocado branch, the last item on our list is 'Avocado'.
 
 <a name="GK_CLI">Using GitKraken & Command Line Interface (CLI)</a>
 ================================================================================
@@ -588,6 +591,42 @@ Shopping list this week
 
 To resolve the commit, I simply save the change I just made to list.md, then add and commit as normal.
 
+<a name="how_us_gh">How to use git in GitHub</a>
+================================================================================
+
+In [GitHub](http://github.com), the process of creating, making changes to, and comitting files is fairly straightforward, and it's possible to create and manage a repository entirely within GitHub in the browser. The downside to this approach is that you cannot actually run code in GitHub, as you can in Rstudio or some other program. You cannot create a DOCX or PDF file for a manuscript, or run your R analysis, in GitHub. Hence, using git in GitHub should probably be thought about as an occasional tool to use for editing when away from your office computer, or just need a very quick fix to something to pull from GitHub later. To create a new file, simply go to your GitHub repository and click the button "Create new file".
+
+![](images/GitHub_create_file.png)
+
+<br>
+
+This will take you to a new screen where you can start writing directly in your browser, and you can save the file as whatever name you want. When you're finished, you can scroll to the bottom of the page to make a commit.
+
+![*In general, it is a good idea to try to come up with an informative commit message. Traditionally, git commit messages are written in present tense.*](images/GitHub_commit.png)
+
+<br>
+
+Unlike using tools outside of your browser such as GitKraken or the command line, there is no need to [push to or pull](#step4) anything from GitHub because you're making changes *directly to GitHub*, so the edits made to files are automatically saved into GitHub. **It is important to note, however, that changes you make on GitHub need to be pulled** (i.e., downloaded) onto your local computer *before* you start making changes locally -- e.g., in Rstudio. They won't appear automatically.
+
+With no need to push or pull in GitHub itself, we can move to using branches in GitHub. You can create a branch whenever you edit a file by selecting the 'Create a **new branch** for this commit and start a pull request' radio button below your commit message. 
+
+![](images/GitHub_create_new_branch.png)
+
+<br>
+
+Creating a new branch will immediately take you to the pull request screen below. This will send a request to merge the change that you've just made with the master branch (i.e., a '[pull request](https://github.com/StirlingCodingClub/version_control/pull/1)') -- it let's you know that the branches can be merged without any [merge conflict](#step6), and shows the change that you made at the bottom of the secreen (removing 'Tomatoes' and adding 'Avacodo'). 
+
+![](images/GitHub_branching.png)
+
+<br>
+
+There is no need to create a pull request if you do not want to -- the change that you have made has already created a new branch. You now have two different versions of the repository, and can switch between them. To switch between branches in GitHub, go to [the repository](https://github.com/StirlingCodingClub/version_control) and find the pull down that says 'Branch:'. You should be able to switch to the branch 'avocado' to see what the repository looks like on this branch. 
+
+![*An example of switching to a different branch*](images/GitHub_branch_2.png)
+
+<br>
+
+To merge the 'avacado' branch into the base 'master' branch, you would go into the [pull request](https://github.com/StirlingCodingClub/version_control/pull/1) and click the green button 'Merge pull request'. I will explain merging more in the next section explaining [branching](#branches) and [merge conflicts](#step6). In the mean time, note that we now have two different versions (branches) of the same repository, in which the file 'list.md' differs. In the master branch, the last item on our list is 'Tomatoes', whereas in the avocado branch, the last item on our list is 'Avocado'.
 
 <a name="whatelse">Additional resources</a>
 ================================================================================

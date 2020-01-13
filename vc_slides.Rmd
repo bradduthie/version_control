@@ -1,6 +1,6 @@
 ---
 title: "Version control for reproducible science"
-subtitle: "https://stir.ac.uk"
+subtitle: "https://bradduthie.github.com/version_control/vc_slides.pdf"
 author: "Brad Duthie"
 date: "16 January 2020"
 output:
@@ -193,7 +193,7 @@ Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscrip
 
 ## Objectives: using version control
 
-\textbf{Guided walkthrough of setting up a project in \href{http://github.com}{GitHub} and \href{http://gitkraken.com}{GitKraken} to manage a project with version control.} \pause
+\textbf{Guided walkthrough of setting up a project in \href{http://github.com}{GitHub} and \href{http://gitkraken.com}{GitKraken} to manage a project with version control.}
 
 \vspace{4mm}
 \hrule
