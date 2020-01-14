@@ -67,7 +67,7 @@ Although not strictly necessary, signing up with a GitHub account and downloadin
 1. <a name="sign_up_GitHub">Signing up with a GitHub account</a>
 --------------------------------------------------------------------------------
 
-If you are just starting out with git, I recommend [signing up with a GitHub account](github.com/join). GitHub is a free site where you can host your own projects and collaborate with other researchers. It is mostly known as a host for code and software development, but any projects that are version controlled with git can also be hosted here. Chances are, if you have an R package that you reglularly use (e.g., [ggplot2](https://github.com/tidyverse/ggplot2), [vegan](https://github.com/vegandevs/vegan), [lme4](https://github.com/lme4/lme4)), the the code and entire development history is publicly available, along with a [issues board](https://github.com/lme4/lme4/issues) containing known bugs, questions, and requests for new features.
+If you are just starting out with git, I recommend [signing up with a GitHub account](github.com/join). GitHub is a free site where you can host your own projects and collaborate with other researchers. It is mostly known as a host for code and software development, but any projects that are version controlled with git can also be hosted here. Chances are, if there is an R package that you reglularly use (e.g., [ggplot2](https://github.com/tidyverse/ggplot2), [vegan](https://github.com/vegandevs/vegan), [lme4](https://github.com/lme4/lme4)), then the code and entire development history will be publicly available, along with a [issues board](https://github.com/lme4/lme4/issues) containing known bugs, questions, and requests for new features.
 
 ![](images/github_create_account.png)
 
@@ -76,19 +76,58 @@ Select a username and password to [sign up](github.com/join), then click on the 
 2. <a name="Download_GitKraken">Download GitKraken software</a>
 --------------------------------------------------------------------------------
 
-I recommend [downloading GitKraken](https://www.gitkraken.com/download) for getting started. By downloading GitKraken, you will automatically also download git. GitKraken itself is a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface) to make git much easier to use; no command line is necessary, so all of your version control needs are taken care of in a graphically rich point and click interface. For those who prefer to use the command line interface, I have included instructions for how to do this below too. Learning to use git in the command line is probably useful if you already use the command line in your normal work flow (or if you are interested in doing so!), but if it's not something that you work with already, learning it here is probably more trouble than it's worth.
+I recommend [downloading GitKraken](https://www.gitkraken.com/download) for getting started with git. By downloading GitKraken, you will automatically also download git. GitKraken itself is a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface) to make git much easier to use; no command line is necessary, so all of your version control needs are taken care of in a graphically rich point and click interface. For those who prefer to use the command line interface, I have included instructions for how to do this below too. Learning to use git in the command line is probably useful if you already use the command line in your normal work flow (or if you are interested in doing so), but if it's not something that you work with already, learning it here is probably more trouble than it's worth.
 
 GitKraken is also free, and it easily integrates with GitHub and your GitHub account. And if you are a student and apply for the [GitHub student developer pack](https://help.github.com/en/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack) as suggested [above](#sign_up_GitHub), the pack will come with a free version of [GitKraken Pro](https://www.gitkraken.com/student-resources).
 
-
-3. <a name="place_files">Putting project files in a common folder</a>
+3. <a name="folder_structure">Understanding folder structure</a>
 --------------------------------------------------------------------------------
 
-It is important to know where your project folder and all relevant files are stored on your computer. This might sound obvious, but it is actually easy to lose track of this information with a lot of software. Some programs can make it easy to not pay attention to where something is being saved or opened from, e.g., by picking a reasonable default location to save or having a File pulldown menu that lists 'Recent files' to open. Nevertheless, version control aside, it is good practice to always know where files are located your computer, and it is generally more efficient to keep all of the files within a particular project in the same folder.
+It is important to know where your project folder and all relevant files are stored on your computer. This might sound obvious, but it is actually easy to lose track of this information with a lot of software. Some programs can make it easy to not pay attention to where something is being saved or opened from, e.g., by picking a reasonable default location to save or having a File pulldown menu that lists 'Recent files' to open. Nevertheless, version control aside, it is good practice to always know where files are located on your computer, and it is generally more efficient to keep all of the files within a particular project in the same folder.
+
+The location of your files (i.e., the path to your directory) will look a bit different depending on whether you are using Linux, Mac, or Windows. For example, here is where the file that you are reading is stored on my computer (Linux).
+
+```{r}
+getwd(); # Returns the working directory
+```
+
+If you run Mac, a path to directory might look something like the below.
+
+```
+/Users/brad/Dropbox/teaching/workshops/version_control
+```
+
+If you run Windows, your path to directory might look something like this.
+
+```
+C:/Users/brad/Dropbox/teaching/workshops/version_control
+```
+
+Note that in all of these examples, the names between dashes represent nested folders that lead to a folder of interest (in this case, 'version_control'). Your path might look different from any of the above, but the idea is the same. The folder or 'repository' that I am working with is named 'version_control', which itself is within a folder called 'workshops', which is within a folder called 'teaching', etc. Knowing this path to your project folder will make it easier to work with git, and easier to keep your work flow more organised. Note that 'version_control' itself can have files and sub-folders within it.
+
+```{r}
+list.files(path = ".", include.dirs = TRUE); # shows files in the working dir
+```
+
+The above is a list of all of the files in the current working directory, so, e.g., the path to this file is as below.
+
+```
+/home/brad/Dropbox/teaching/workshops/version_control/vc_notes.pdf
+```
+
+Note that there is one subfolder (which has no extension such as .pdf or .Rmd) named 'images', which is where I have saved all of the images for these notes and [accompanying slides](https://bradduthie.github.io/version_control/vc_slides.pdf).
+
+```{r}
+list.files(path = "images", include.dirs = TRUE);
+```
+
+To better understand the notation and lists above, you can browse 'version_control' [on GitHub](https://github.com/bradduthie/version_control) to see the files and image folder.
 
 
-4. <a name="folder_structure">Understanding folder structure</a>
+4. <a name="place_files">Putting project files in a common folder</a>
 --------------------------------------------------------------------------------
+
+There are a lot of ways that you can organise your workflow, but I strongly recommend giving any unique project on which you are working its own folder.
 
 
 5. <a name="text_binary">Understanding text versus binary files</a>
