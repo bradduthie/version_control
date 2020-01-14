@@ -5,6 +5,14 @@ date: "26 September 2018"
 output: html_document
 ---
 
+<!--- TODO: Some remaining exercises are needed, with a long exercise allowing everyone to do their own work, initialising a new repository that they will actually use for a project and getting started on it.
+
+There should also be a brief section, perhaps, on cloning and forking repositories from GitHub, which could be useful. 
+
+Lastly, maybe a section that asks them to attempt to send a pull request? This might be a bit much.
+
+--->
+
 Contents
 ================================================================================
 
@@ -192,10 +200,18 @@ The image below shows the version_control repository during an early stage of de
 
 Note that the bottom area of the GitKraken interface shows the changes made during the last commit. 
 
+**Exercise:** *Find the repository that you just initialised in GitKraken on a file browser on your computer. Look inside the repository and open the 'README.md' file. Make a change to this file, then save. Then, shift back to GitKraken; what has changed? Lastly, copy a (small) file from somewhere else on your computer and paste it into the new repository. Shift back to GitKraken again; what has changed now?*
+
+Since you have linked GitKraken to your GitHub account, you should be able to see the newly created repository on GitHub.
+
+**Exercise:** *Open a browser and navigate to [GitHub](http://github.com). Find your new repository. Explore the features associated with your repository on GitHub (e.g., Issues, Projects, Wiki), and think about how these might or might not be incorporated into your workflow.*
+
 
 
 2. <a name="step3">Add and commit files</a>
 --------------------------------------------------------------------------------
+
+<!--- XXX  Need to explain what an 'add' and a 'commit' is --->
 
 Now that you have a repository ready to start tracking your changes, you can start making commits. The flow of this process as you work within your repository is typically (1) saving files, (2) adding (or 'staging') files , (3) committing files, and (4) pushing files too GitHub. Rather than saving the most recent changes that you've made to the files in your repository, the idea here is to save a snapshot of the whole repository using 'commit'. You can then always return to this commit to view what your repository looked like at a previous time. 
 
