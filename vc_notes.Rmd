@@ -74,12 +74,16 @@ If you are just starting out with git, I recommend [signing up with a GitHub acc
 
 Select a username and password to [sign up](github.com/join), then click on the button to select a plan. A free plan is likely to be sufficient for all of your needs, but if you are a student, then you can also [apply for a student developer pack](https://help.github.com/en/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack). In either case, you will be able to create an unlimited number of public and private (i.e., only visible to you) repositories and upload them to GitHub.
 
+**Exercise:** *Create a GitHub profile. If you have already created a profile, then add some information to personalise your profile, or apply for a student developer pack.*
+
 2. <a name="Download_GitKraken">Download GitKraken software</a>
 --------------------------------------------------------------------------------
 
-I recommend [downloading GitKraken](https://www.gitkraken.com/download) for getting started with git. By downloading GitKraken, you will automatically also download git. GitKraken itself is a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface) to make git much easier to use; no command line is necessary, so all of your version control needs are taken care of in a graphically rich point and click interface. For those who prefer to use the command line interface, I have included instructions for how to do this below too. Learning to use git in the command line is probably useful if you already use the command line in your normal work flow (or if you are interested in doing so), but if it's not something that you work with already, learning it here is probably more trouble than it's worth.
+I recommend [downloading GitKraken](https://www.gitkraken.com/download) for getting started with git. By downloading GitKraken, you will automatically also download git. GitKraken itself is a [Graphical User Interface (GUI)](https://en.wikipedia.org/wiki/Graphical_user_interface) to make git much easier to use; no command line is necessary, so all of your version control needs are taken care of in a graphically rich point and click interface. For those who prefer to use the command line interface, see [these notes](https://stirlingcodingclub.github.io/version_control/vc_notes.html) from [Stirling Coding Club](https://stirlingcodingclub.github.io/studyGroup/).
 
 GitKraken is also free, and it easily integrates with GitHub and your GitHub account. And if you are a student and apply for the [GitHub student developer pack](https://help.github.com/en/github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack) as suggested [above](#sign_up_GitHub), the pack will come with a free version of [GitKraken Pro](https://www.gitkraken.com/student-resources).
+
+**Exercise:** *Download GitKraken, then open it. **When prompted, choose the option to sign into GitKraken with your GitHub account**. Next, familiarise yourself with the GitKraken environment.*
 
 3. <a name="folder_structure">Understanding folder structure</a>
 --------------------------------------------------------------------------------
@@ -89,7 +93,7 @@ It is important to know where your project folder and all relevant files are sto
 The location of your files (i.e., the path to your directory) will look a bit different depending on whether you are using Linux, Mac, or Windows. For example, here is where the file that you are reading is stored on my computer (Linux).
 
 ```{r}
-getwd(); # Returns the working directory
+getwd(); # In R, returns the working directory
 ```
 
 If you run Mac, a path to directory might look something like the below.
@@ -98,16 +102,16 @@ If you run Mac, a path to directory might look something like the below.
 /Users/brad/Dropbox/teaching/workshops/version_control
 ```
 
-If you run Windows, your path to directory might look something like this.
+And if you run Windows, your path to directory might look something like this.
 
 ```
 C:/Users/brad/Dropbox/teaching/workshops/version_control
 ```
 
 Note that in all of these examples, the names between dashes represent nested folders that lead to a folder of interest (in this case, 'version_control'). Your path might look different from any of the above, but the idea is the same. The folder or 'repository' that I am working with is named 'version_control', which itself is within a folder called 'workshops', which is within a folder called 'teaching', etc. Knowing this path to your project folder will make it easier to work with git, and easier to keep your work flow more organised. Note that 'version_control' itself can have files and sub-folders within it.
-g
+
 ```{r}
-list.files(path = ".", include.dirs = TRUE); # shows files in the working dir
+list.files(path = ".", include.dirs = TRUE); # In R, shows files in working dir
 ```
 
 The above is a list of all of the files in the current working directory, so, e.g., the path to this file is as below.
@@ -116,10 +120,10 @@ The above is a list of all of the files in the current working directory, so, e.
 /home/brad/Dropbox/teaching/workshops/version_control/vc_notes.pdf
 ```
 
-Note that there is one subfolder (which has no extension such as .pdf or .Rmd) named 'images', which is where I have saved all of the images for these notes and [accompanying slides](https://bradduthie.github.io/version_control/vc_slides.pdf).
+Note that there is one sub-folder (which has no extension such as .pdf or .Rmd) named 'images', which is where I have saved all of the images for these notes and [accompanying slides](https://bradduthie.github.io/version_control/vc_slides.pdf).
 
 ```{r}
-list.files(path = "images", include.dirs = TRUE);
+list.files(path = "images", include.dirs = TRUE); 
 ```
 
 To better understand the notation and lists above, you can browse 'version_control' [on GitHub](https://github.com/bradduthie/version_control) to see the files and image folder.
@@ -134,7 +138,7 @@ There are a lot of ways that you can organise your workflow, but I strongly reco
 
 Separate folders in this project include data, analysis code, a manuscript in preparation, and project notes. The entire history is tracked on git and [available on GitHub](https://github.com/bradduthie/RandomMatrixStability). 
 
-**To get started, identify a location on your computer and create a new folder with a project name**. This will be the folder that you later initialise as a git repository. Do not put anything in this folder just yet.
+**Exercise:** *Identify a location on your computer where you would like to create a new folder to be later initialised as a git repository. Do not actually create this folder yet; we will do this later from GitKraken.*
 
 
 5. <a name="text_binary">Understanding text versus binary files</a>
@@ -142,9 +146,9 @@ Separate folders in this project include data, analysis code, a manuscript in pr
 
 When working with git, it is important to understand the difference between [text files](https://en.wikipedia.org/wiki/Text_file) and [binary files](https://en.wikipedia.org/wiki/Binary_file). These are two general categories of file types; both work with git, but you can do a bit with text files that you cannot do with binary files. For the purpose of working with git, all that is important to know is the following:
 
-- Text files can be viewed as plain text in any sort of text editor (e.g., Notepad, TextEdit, gedit) or Integrated Development Environment (e.g., Rstudio, VIM, Emacs). They include files with extensions such as .txt, .R, .csv, .html, .md, .tex (among many others). If you are unsure if something is a text file, try opening it up in a plain text editor such as Notepad or TextEdit. If what you open is readable, then you have probably opened a text file. If what open looks incoherent, then you have probably opened a binary file.
+- **Text files** can be viewed as plain text in any sort of text editor (e.g., Notepad, TextEdit, gedit) or Integrated Development Environment (e.g., Rstudio, VIM, Emacs). They include files with extensions such as .txt, .R, .csv, .html, .md, .tex (among many others). If you are unsure if something is a text file, try opening it up in a plain text editor such as Notepad or TextEdit. If what you open is readable, then you have probably opened a text file. If what open looks incoherent, then you have probably opened a binary file.
 
-- Binary files need to be opened with special software to be readable (e.g., MSWord, Adobe Acrobat, Photo Viewer). They include files with extensions such as .pdf, .docx, .xlsx, .pptx, .jpg, .gif (among many others). If you try to open any of the aforementioned file types in a text editor such as Notepad, you will see a mess of characters that is impossible to interpret.
+- **Binary files** need to be opened with special software to be readable (e.g., MSWord, Adobe Acrobat, Photo Viewer). They include files with extensions such as .pdf, .docx, .xlsx, .pptx, .jpg, .gif (among many others). If you try to open any of the aforementioned file types in a text editor such as Notepad, you will see a mess of characters that is impossible to interpret.
 
 This distinction matters because while both text and binary files can be used with git, the only way to see changes made to a binary file is to open up old and new versions of it and manually compare them side by side. In contrast, git can point out changes made to text files directly; below is an example showing the changes between different versions of a text file (ms.Rmd) in the GitKraken interface.
 
@@ -152,13 +156,14 @@ This distinction matters because while both text and binary files can be used wi
 
 Gitkraken shows lines that have been deleted (red) and added (green) after a file has been updated. This might not be important for some files that you work with, but it's good to keep in mind when using version control. **In the next section, we will get started by making a git repository. You should now have a folder in a known location on your computer where you can get started.** I will provide instructions for both GitKraken and the command line interface (CLI), but it is only necessary to know one of these. If you are just getting started, I recommend ignoring the CLI parts and learning the key concepts with GitKraken.
 
-********************************************************************************
+**Exercise:** *Try to open some different some **small** files on your computer in a text editor such as NotePad or TextEdit to see what happens. Try it with an R or CSV file, then again with a DOCX or XLSX file.*
 
+********************************************************************************
 
 <a name="GK_CLI">Using GitKraken</a>
 ================================================================================
 
-This set of instructions will get you started working with git and GitHub. Throughout this guide, I will explain how to use the basic functions of git and link git with GitHub using the free software [GitKraken](http://gitkraken.com). GitKraken can run alongside whatever text editor (e.g., Rstudio) you're using to actually edit your text files, but you don't typically make edits from within GitKraken itself -- GitKraken is more like a file manager in this way; you can keep it open to stage, commit, push, pull, etc., while working on files in your git repository.
+This set of instructions will get you started working with git and GitHub. Throughout this guide, I will explain how to use the basic functions of git and link git with GitHub using the free software [GitKraken](http://gitkraken.com). GitKraken can run alongside whatever text editor (e.g., Rstudio) you're using to actually edit your text files, but you don't typically make edits from within GitKraken itself -- GitKraken is more like a file manager in this way; you can keep it open to stage, commit, push, pull, etc. (more on these later), while working on files in your git repository.
 
 1. <a name="step1">Initialising a git repository</a>
 --------------------------------------------------------------------------------
@@ -175,7 +180,7 @@ To initialise a new repository, click on the option 'Init' on the left. This wil
 
 ![](images/init_GitKraken.png)
 
-Notice that there are several options in the middle tab. You can initialise a git repository that is 'Local Only', which means that the history of the project will only be saved on your own computer, and not hosted online (at least not yet). Alternativley, you can choose from multiple online hosts where you will later 'push' your files. Since you should have already [signed up with a GitHub account](sign_up_GitHub), choose the tab 'GitHub.com' as selected above. You should see your account listed in the right tab; if it's not there, then you need to link GitKraken to your GitHub account before continuing. You can also choose the name of the repository (avoid using spaces) and provide a brief description, and choose if you prefer to have the repository public or private on GitHub. Check 'Clone after init' as indicated above, and decide [where your repository will be stored](#folder_structure) by typing or finding (using 'Browse') the location on your computer. Click the green 'Create Repository and Clone'.
+Notice that there are several options in the middle tab. You can initialise a git repository that is 'Local Only', which means that the history of the project will only be saved on your own computer, and not hosted online (at least not yet). Alternativley, you can choose from multiple online hosts where you will later 'push' your files. Since you should have already [signed up with a GitHub account](sign_up_GitHub), choose the tab 'GitHub.com' as selected above. You should see your account listed in the right tab; if it's not there, then you need to link GitKraken to your GitHub account before continuing. You can also choose the name of the repository (avoid using spaces) and provide a brief description, and choose if you prefer to have the repository public or private on GitHub. Check 'Clone after init' as indicated above, and locate where [you decided that your repository will be stored](#place_files) by typing or finding (using 'Browse') the location on your computer. Click the green 'Create Repository and Clone'.
 
 If open a file browser on your computer (e.g., 'File Explorer' on Windows, 'Finder' on Mac), you should now see your repository in the location that you created it with GitKraken. If you look inside, then you will see a file called 'README.md', which GitKraken has created to get you started. Your repository should now be ready to go and linked to your GitHub account.
 
@@ -186,6 +191,8 @@ The image below shows the version_control repository during an early stage of de
 <br>
 
 Note that the bottom area of the GitKraken interface shows the changes made during the last commit. 
+
+
 
 2. <a name="step3">Add and commit files</a>
 --------------------------------------------------------------------------------
