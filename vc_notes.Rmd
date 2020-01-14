@@ -1,7 +1,7 @@
 ---
 title: "Version control for reproducible science"
 author: "Brad Duthie"
-date: "26 September 2018"
+date: "16 January 2020"
 output: html_document
 ---
 
@@ -10,6 +10,10 @@ output: html_document
 There should also be a brief section, perhaps, on cloning and forking repositories from GitHub, which could be useful. 
 
 Lastly, maybe a section that asks them to attempt to send a pull request? This might be a bit much.
+
+Add the general goals to the slides: Practical tools for getting started. Improve work flow. Save and track files more easily.
+
+Add rebasing? Add tags?
 
 --->
 
