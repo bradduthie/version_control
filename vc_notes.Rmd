@@ -13,8 +13,7 @@ Lastly, maybe a section that asks them to attempt to send a pull request? This m
 
 Add the general goals to the slides: Practical tools for getting started. Improve work flow. Save and track files more easily.
 
-Add rebasing? Add tags?
-
+Add rebasing? Add tags -- created a tag example?
 --->
 
 Contents
