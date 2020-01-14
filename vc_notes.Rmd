@@ -10,7 +10,7 @@ Contents
 
 ********************************************************************************
 
-**These notes are provided as a guided tutorial to accompany a workshop focused on the use of version control to improve workflow in scientific research, but they can also be used as a standalone introduction to the subject. These notes will help the reader begin using git version control software and the [GitHub](http://github.com) hosting service. An introduction to git is provided using the commandline interface and [GitKraken](http://gitkraken.com) software, but it is only necessary to learn one to be able to use git effectively. After finishing this tutorial, the reader should be able to use version control in their own scientific workflow.**
+**These notes are provided as a guided tutorial to accompany a workshop focused on the use of version control to improve workflow in scientific research, but they can also be used as a standalone introduction to the subject. These notes will help the reader begin using git version control software and the [GitHub](http://github.com) hosting service. An introduction to git is provided using[GitKraken](http://gitkraken.com) software. For an introduction that includes the command line interface (CLI), an [alternative set of notes](https://stirlingcodingclub.github.io/version_control/vc_notes.html) also exists as part of atutorial in the [Stirling Coding Club](https://stirlingcodingclub.github.io/studyGroup/). After finishing this tutorial, the reader should be able to use version control in their own scientific workflow.**
 
 ********************************************************************************
 
