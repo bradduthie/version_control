@@ -13,17 +13,30 @@ urlcolor: blue
 ---
 
 
+## Focus of this afternoon
+
+\begin{itemize}
+\setlength\itemsep{0.8em}
+\item Understand what version control is and how it can be integrated into your work flow \pause
+\item Focus on practical skills for research
+\begin{itemize}
+\item Learn and reinforce knowledge on how to use \textbf{key skills} effectively
+\item Focus on \href{https://github.com}{GitHub} and \href{https://gitkraken.com}{GitKraken} software \pause
+\end{itemize}
+\item Hands-on practice setting up and using version control in your own work with \href{https://bradduthie.github.io/version_control/vc_notes.html}{accompanying notes for guidance}
+\end{itemize}
+
 ## Rough outline of version control workshop
 
 \begin{enumerate}
-\setlength\itemsep{0.8em}
-\item \textbf{14:00} What is version control, and why use it?
-\item \textbf{14:20} Getting set up -- good file management
-\item \textbf{14:30} The \href{https://www.gitkraken.com/}{GitKraken} interface and simple commits
-\item \textbf{15:00} Setting up \href{https://www.github.com}{GitHub}, pushing and pulling
-\item \textbf{15:30} Branching using \href{https://www.gitkraken.com/}{GitKraken}
-\item \textbf{16:00} Merging and merge conflicts
-\item \textbf{16:30} Independent work using version control
+\setlength\itemsep{0.6em}
+\item What is version control, and why use it?
+\item Getting set up -- good file management
+\item The \href{https://www.gitkraken.com/}{GitKraken} interface and simple commits
+\item Setting up \href{https://www.github.com}{GitHub}, \underline{pushing} and \underline{pulling}
+\item \underline{Branching} using \href{https://www.gitkraken.com/}{GitKraken}
+\item \underline{Merging} and \underline{merge conflicts}
+\item Independent work using version control
 \end{enumerate}
 
 ## What is version control, and why use it?
