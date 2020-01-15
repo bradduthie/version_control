@@ -6,3 +6,4 @@ Shopping list this week
 - Bread
 - Lettuce
 - Tomatoes
+- Tea
