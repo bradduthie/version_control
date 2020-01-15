@@ -171,6 +171,8 @@ There are a lot of ways that you can organise your workflow, but I strongly reco
 
 ![](images/RMS_rep_eg.png)
 
+<br>
+
 Separate folders in this project include data, analysis code, a manuscript in preparation, and project notes. The entire history is tracked on git and [available on GitHub](https://github.com/bradduthie/RandomMatrixStability). 
 
 > **Exercise:** *Identify a location on your computer where you would like to create a new folder to be later initialised as a git repository. Do not actually create this folder yet; we will do this later from GitKraken.*
@@ -188,6 +190,8 @@ When working with git, it is important to understand the difference between [tex
 This distinction matters because while both text and binary files can be used with git, the only way to see changes made to a binary file is to open up old and new versions of it and manually compare them side by side. In contrast, git can point out changes made to text files directly; below is an example showing the changes between different versions of a text file (ms.Rmd) in the GitKraken interface.
 
 ![](images/GitKraken_filechange.png)
+
+<br>
 
 Gitkraken shows lines that have been deleted (red) and added (green) after a file has been updated. This might not be important for some files that you work with, but it's good to keep in mind when using version control. **In the next section, we will get started by making a git repository. You should now have a specified location on your computer where you can get started.** 
 
@@ -207,13 +211,19 @@ When you open [GitKraken](http://gitkraken.com), you should see a toolbar at the
 
 ![](images/GitKraken_toolbar.png)
 
+<br>
+
 Click on the folder outline icon on the very left. This should open the Repository Management window, which will look something like the below. 
 
 ![](images/GitKraken_repo_manage.png)
 
+<br>
+
 To initialise a new repository, click on the option 'Init' on the left. This will open up a window that looks something like the below.
 
 ![](images/init_GitKraken.png)
+
+<br>
 
 Notice that there are several options in the middle tab. You can initialise a git repository that is 'Local Only', which means that the history of the project will only be saved on your own computer, and not hosted online (at least not right away). Alternatively, you can choose from multiple online hosts where you will later 'push' your files. Since you should have already [signed up with a GitHub account](sign_up_GitHub), choose the tab 'GitHub.com' as selected above. You should see your account listed in the right tab; if it's not there, then you need to link GitKraken to your GitHub account before continuing. You can also choose the name of the repository (avoid using spaces in the name) and provide a brief description, and choose if you prefer to have the repository public or private on GitHub. Check 'Clone after init' as indicated above, and locate where [you decided that your repository will be stored](#place_files) by typing or finding (using 'Browse') the location on your computer. Click the green 'Create Repository and Clone'.
 
@@ -238,17 +248,23 @@ Since you have linked GitKraken to your GitHub account, you should be able to se
 2. <a name="step3">Add and commit files</a>
 --------------------------------------------------------------------------------
 
-<!--- XXX  Need to explain what an 'add' and a 'commit' is --->
+The importance of saving and backing up saved files is obvious to anyone who has ever had a program crash on them. Version control does not replace saving files, but is more like an additional layer of security on top of saving to avoid losing your important work. After a file is saved, it can then be 'staged' in git, which means that it is ready to be committed to the history of the repository. GitKraken will automatically recognise when files in your repository have been saved and list them as unstaged.
 
-Now that you have a repository ready to start tracking your changes, you can start making commits. The flow of this process as you work within your repository is typically (1) saving files outside of GitKraken, (2) adding (or 'staging') files in GitKraken, (3) committing files in GitKraken, and (4) pushing files to GitHub in GitKraken. Rather than saving the most recent changes that you've made to the files in your repository, the idea here is to save a snapshot of the whole repository using 'commit'. You can then always return to this commit to view what your repository looked like at a previous time. 
+![](images/GitKraken_unstaged.png)
+
+<br>
+
+In the above, 'vc_notes.html' and 'vc_notes.Rmd' have been saved outside of GitKraken. GitKraken recognises this and lists them as being available to stage. After a file staged, it can be committed, which creates a reference point for the entire repository to which you can always refer back. 
+
+**Work flow incorporating git typically proceeds as follows: (1) saving files outside of GitKraken, (2) adding (or 'staging') files in GitKraken, (3) committing files in GitKraken, and (4) pushing files to GitHub in GitKraken.** Rather than saving the most recent changes that you've made to the files in your repository, the idea here is to save a snapshot of the whole repository using 'commit'. You can then always return to this commit to view what your repository looked like at a previous time. 
 
 ![](images/GitKraken_2.png)
 
 <br>
 
-In the above image, the history of commits is shown with in the cyan circles, along with a commit message written to explain the changes made in each commit (by convention, these are typically written in the present tense). So you can see that my most recent commits were to 'Add first image', and before that to 'Add some video links', etc. You can see what the directory looked like at these points by clicking on these commits (this is also possible in GitHub where you can see the [history of this repository](https://github.com/bradduthie/version_control/commits/master)). The very top shows WIP (work in progress), which is the directory as it looks at the moment.
+In the above image, the history of commits is shown with in the cyan circles, along with a commit message written to explain the changes made in each commit (by convention, these are typically written in the present tense). So you can see that my most recent commits were to 'Add first image', and before that to 'Add some video links', etc. You can see what the directory looked like at these points by right clicking on these commits and selecting 'Checkout this commit' (viewing a commit is also possible, and often easier, in GitHub where you can see the [history of this repository](https://github.com/bradduthie/version_control/commits/master)). The very top shows WIP (work in progress), which is the directory as it looks at the moment. 
 
-As you work on your files, continue to save things as you normally would; you need to save before files can be added or committed. In the above, you can see the files 'vc_notes.Rmd' and 'vc_notes.html'. These have been saved recently, which is why they are listed as 'Unstaged files' (shown with yellow icons). 
+As you work on your files, continue to save as you normally would; you always need to save before files can be added or committed. In the above, you can see the files 'vc_notes.Rmd' and 'vc_notes.html' (yellow boxes). These have been saved recently, which is why they are listed as 'Unstaged files' (shown with yellow icons). 
 
 Now assume that we want to commit the changes we have saved, establishing a snapshot of the directory that we can return to in the future. The common wisdom in using version control is **"commit early, commit often"**, meaning that it is generally better to err on the side of commiting changes that you make to your repository more often than you think is necessary. In practice, I try to commit frequently, almost as often as I save file changes; even small changes can be useful to have their own commit because the changes are easier to read in small chunks rather than massive changes to files. To commit our changes, we need to 'stage' the files. You can stage all of the changed files at once, if desired, or you can stage only a subset of them (if, e.g., you wanted to record a change in one file, but wait to commit changes in another file). In GitKraken, staging is done simply by hovering over the file of interest in the 'Unstaged files' field, then clicking on the green 'Stage file' box that appears to the right of it. If you instead want to stage all files, then you can click on the 'Stage all changes' box in green.
 
@@ -281,7 +297,7 @@ Assuming that you have [linked your local repository with GitHub](#ghlink), uplo
 
 <br>
 
-To push all of your commits to your GitHub account online, simply hit the 'Push' button. You might be prompted to specify where to push.
+To push all of your commits to your GitHub account online, simply hit the 'Push' button. You might be prompted to specify where to push (if not, skip down to the next **Exercise**).
 
 
 ![](images/GitKraken_push.png)
@@ -290,51 +306,68 @@ To push all of your commits to your GitHub account online, simply hit the 'Push'
 
 If so, make sure that the choice from the pull down (in this case, 'version_control') matches the repository name on GitHub ([see it here](https://github.com/bradduthie/version_control)), and keep the branch 'master' for now. Click on the green 'Submit' button, and you should succcessfully have pushed to GitHub. To see the changes made, you can go to the [commit history](https://github.com/bradduthie/version_control/commits/master) in your GitHub repository.
 
-> **Exercise:** *You now know how to push changes to GitHub using both GitKraken. Make some more commits to the file(s) in your repository, then push them to GitHub to see what happens. Explore the repository and the commit history on GitHub.*
+> **Exercise:** *You now know how to push changes to GitHub using GitKraken. Make some more commits to the file(s) in your repository, then push them to GitHub to see what happens. Explore the repository and the commit history on GitHub.*
 
-Pulling changes from GitHub works in roughly the same way. To pull your change in GitKraken, just click on the 'Pull' icon. Your commits from GitHub should be incorporated automatically, assuming that there is no conflict in merging (more on that later).
-
-![](images/GitKraken_top.png)
-
-This is a good time to mention that you can make changes to text files directly from GitHub, if you wish. To do this, you can open a file within GitHub by clicking on it. Below, I have opened up the file list.md, which is a shopping list written in [markdown](https://en.wikipedia.org/wiki/Markdown).
-
-![](images/GitHub_view_list.png)
-
-To edit this file, you can click on the pencil icon above the body of the file (between the box 'History' and the bin icon). This will take you to a text editor within GitHub.
-
-![](images/GitHub_edit_list_top.png)
-
-I have edited the file to now include 'Tea' to the shopping list. There is no need to save or stage the file when editing directly from GitHub; we can just commit it directly to the master branch. This option is at the bottom of the page.
-
-![](images/GitHub_edit_list_bottom.png)
-
-Remember to add a meaningful message of the commit change. Above I have committed directly to the master branch. It is also possible to create a new branch for the commit -- we will look at branches [in the next section](#branches). In the mean time, try editing your README.md file directly in GitHub (note -- make sure that you do not have any saved or unpushed changes to README.md on your local computer).
-
-> **Exercise:** *Edit your README.md file directly from GitHub, then commit the change.*
-
-When you are finished committing the change that you made to README.md on GitHub, go back to GitKraken. The 'Pull' button on your tool bar will take the updated commit history from GitHub and incorporate it back into GitKraken, and the updated README.md should automatically show up on your computer when you open it.
-
-> **Exercise:** *Pull the changes you made to README.md on GitHub to GitKraken.*
-
-That's all there is to it. You now have all of the tools that you need to save changes to a project repository, commit them to git, and push to and pull from GitHub. This is all that you need for working independently to safely back up and record all of the changes in a project that you are working on. A good work flow is to save the files that you work on frequently, and keep GitKraken (or a terminal) open in the background. Then, whenever you feel like you have made some important changes to your files (e.g., a new paragraph, some new code that works), commit the change and push it to GitHub. In addition to backing up the history if all of your project development, it is also nice to have a record of your progress over time. If you have any difficulty with these instructions, you can submit a question to the 'version_control' [issues](https://github.com/bradduthie/version_control/issues). Next, I will explain how to use branching in git.
-
-4. <a name="branches">Branches in git</a>
---------------------------------------------------------------------------------
-
-Creating and merging branches in git is an extremely useful tool in work flow. For large projects, I will typically reserve the 'master' branch as a sort of stable version in which I am confident that everything works as intended, and do all new work on a separate branch, only merging to the master branch when I am satisfied that what I have done is sufficient. Then, if I am unsatisfied, I can just abandon my working branch, or delete it. In GitKraken, branching is easy. Just click the 'Branch' button on the top tool bar.
+Pulling changes from GitHub works in roughly the same way. To pull your changes in GitKraken, just click on the 'Pull' icon. Your commits from GitHub should be incorporated automatically, assuming that there is no conflict in merging (more on that later).
 
 ![](images/GitKraken_top.png)
 
 <br>
 
-GitKraken will then ask you to write a new name for a branch on your timeline. In the case of the below, I have titled the new branch 'restructure'. 
+This is a good time to mention that you can make changes to text files directly from GitHub, if you wish. To do this, you can open a file within GitHub by clicking on it. Below, I have opened up the file list.md, which is a shopping list written in [markdown](https://en.wikipedia.org/wiki/Markdown).
+
+![](images/GitHub_view_list.png)
+
+<br>
+
+To edit this file, you can click on the pencil icon above the body of the file (between the box 'History' and the bin icon). This will take you to a text editor within GitHub.
+
+![](images/GitHub_edit_list_top.png)
+
+<br>
+
+I have edited the file to now include 'Tea' to the shopping list. There is no need to save or stage the file when editing directly from GitHub; we can just commit it directly to the master branch. The option to commit is at the bottom of the page.
+
+
+![](images/GitHub_edit_list_bottom.png)
+
+<br>
+
+Remember to add a meaningful message for the commit change. Above I have committed directly to the master branch. It is also possible to create a new branch for the commit -- we will look at branches [in the next section](#branches). In the mean time, try editing your README.md file directly in GitHub (note -- make sure that you do not have any unpushed changes to README.md on your local computer).
+
+> **Exercise:** *Edit your README.md file directly from GitHub, then commit the change.*
+
+When you are finished committing the change that you made to README.md on GitHub, go back to GitKraken. The 'Pull' button on your tool bar will take the updated commit history from GitHub and incorporate it back into GitKraken, and the updated README.md should automatically show up on your computer when you open it.
+
+![](images/GitKraken_top.png)
+
+<br>
+
+> **Exercise:** *Pull the changes you made to README.md on GitHub to GitKraken.*
+
+In practice, you will not be making changes directly from GitHub very often (I don't believe I have ever done it, except for demonstration purposes). But even if you are working by yourself on projects, you still might need to pull from GitHub. If, for example, you work on more than one computer (e.g., a Desktop in the office and laptop during travel), then it is important to know how to push from one computer to GitHub so that changes to your repository can be pulled from GitHub to another computer. 
+
+You now have all of the tools that you need to save changes to a project repository, commit them to git, and push to and pull from GitHub. This is all that you need for working independently to safely back up and record all of the changes in a project that you are working on. A good work flow is to save the files that you work on frequently, and keep GitKraken open in the background. Then, whenever you feel like you have made some important changes to your files (e.g., a completed paragraph, some new code that works), commit the changes and push to GitHub. **Pull from GitHub every time you start working on the same project from a different computer.** In addition to backing up the history if all of your project development, it is also nice to have a record of your progress over time. If you have any difficulty with these instructions, you can submit a question to the 'version_control' [issues](https://github.com/bradduthie/version_control/issues). I will read through these and try to help you troubleshoot. Next, I will explain how to use branching in git.
+
+4. <a name="branches">Branches in git</a>
+--------------------------------------------------------------------------------
+
+Once you have a clear understanding of how commits work, you can start thinking in terms of different branches of commit histories. Up until now, we have looked at the history of commits on GitHub and GitKraken as a single linear timeline. With branching, we can effectively create alternative timelines of commits comprised of different snapshots existing in parallel. It is then possible to quickly switch between different versions of the same repository. For example, you might want to have a branch that contains code that has been tested and demonstrated to work, but also a branch in which the same code is being further developed (and is therefore untested). For large projects, I will typically reserve the 'master' branch as a sort of stable version in which I am confident that everything works as intended, and do all new work on separate branches, only merging to the master branch when I am satisfied that what I have done is sufficient. Then, if I am unsatisfied, I can just abandon my working branch, or delete it. In GitKraken, branching is easy. Just click the 'Branch' button on the top tool bar.
+
+![](images/GitKraken_top.png)
+
+<br>
+
+An empty box will then appear in your commit history, and GitKraken will prompt you to write a new name for a branch on your timeline. In the case of the below, I have titled the new branch 'restructure'. 
 
 
 ![](images/GitKraken_branch.png)
 
 <br>
 
-The new branch 'restructure' starts off in the exact same place as the old 'master' branch did. The files have not changed at all -- branching simply tells git to keep everything in the 'master' branch as is, but start a new branch ('restructure', in this case) to which new commits are recorded (but do not affect the master branch). Hence, any new commits that we make will start a whole new path of commit history.
+The new branch 'restructure' starts off in the exact same place as the old 'master' branch did. The files have not changed at all -- branching simply tells git to keep everything in the 'master' branch as is, but also start a new branch ('restructure', in this case) to which new commits are recorded (but do not affect the master branch). Hence, any new commits that we make will start a whole new path of commit history while keeping the master branch fixed.
+
+> **Exercise:** *In GitKraken, create a new branch in your repository. Then, make some more changes to README.md and commit. Notice that the new commits are only to the new branch, while the master branch remains intact.*
 
 ![](images/GitKraken_branch_2.png)
 
@@ -349,6 +382,8 @@ The above now shows two branches, with 'restructure' diverging from the main 'ma
 Within this hidden folder, all of the history and branches are stored (**don't delete this**).
 
 ![](images/Git_hidden_inside.png)
+
+<br>
 
 Back in GitKraken, you can shift between branches 'master' and 'restructure' as you wish by clicking on them. 
 
