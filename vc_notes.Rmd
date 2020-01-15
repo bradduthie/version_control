@@ -270,7 +270,9 @@ In the above, the red refers to lines that have been removed, while the green sh
 
 You are now able to stage and commit files. This is most of what you'll do with version control, and all that you need to get started. Next, I'll show you how to push your commits to GitHub, and pull changes from GitHub to your local branch. Once you're able to do this, you will have all of the necessary skills for using git and GitHub effectively in your own projects; after that, I'll explain some of the features that make git such an effective tool for collaboration.
 
-3. <a name="step4">Pushing and pulling with GitHub</a>
+> **Exercise:** *Make some changes to the README.md file, save the changes, then stage and commit your changes. Continue to do this for a while, getting used to the process saving, staging, and committing. If you want to, add other files to your repository (but avoid adding especially large files, over 100 MB, for now).*
+
+3. <a name="step4">Pushing and pulling with GitKraken</a>
 --------------------------------------------------------------------------------
 
 Assuming that you have [linked your local repository with GitHub](#ghlink), uploading the changes that you commit to GitHub (pushing), and downloading changes on GitHub and incorporating them into your local repository (pulling) is easy with GitKraken. You should see a top bar in GitKraken that looks like the below.
@@ -286,12 +288,33 @@ To push all of your commits to your GitHub account online, simply hit the 'Push'
 
 <br>
 
-Make sure that the choice from the pull down (in this case, 'version_control') matches the repository name on GitHub ([see it here](https://github.com/bradduthie/version_control)), and keep the branch 'master' for now. Click on the green 'Submit' button, and you should succcessfully have pushed to GitHub. To see the changes made, you can go to the [commit history](https://github.com/bradduthie/version_control/commits/master) in your GitHub repository.
+If so, make sure that the choice from the pull down (in this case, 'version_control') matches the repository name on GitHub ([see it here](https://github.com/bradduthie/version_control)), and keep the branch 'master' for now. Click on the green 'Submit' button, and you should succcessfully have pushed to GitHub. To see the changes made, you can go to the [commit history](https://github.com/bradduthie/version_control/commits/master) in your GitHub repository.
 
-You now know how to push changes to GitHub using both GitKraken. Pulling changes from GitHub works in roughly the same way. To pull your change in GitKraken, just click on the 'Pull' icon. Your commits from GitHub should be incorporated automatically, assuming that there is no conflict in merging (more on that later).
+> **Exercise:** *You now know how to push changes to GitHub using both GitKraken. Make some more commits to the file(s) in your repository, then push them to GitHub to see what happens. Explore the repository and the commit history on GitHub.*
+
+Pulling changes from GitHub works in roughly the same way. To pull your change in GitKraken, just click on the 'Pull' icon. Your commits from GitHub should be incorporated automatically, assuming that there is no conflict in merging (more on that later).
 
 ![](images/GitKraken_top.png)
 
+This is a good time to mention that you can make changes to text files directly from GitHub, if you wish. To do this, you can open a file within GitHub by clicking on it. Below, I have opened up the file list.md, which is a shopping list written in [markdown](https://en.wikipedia.org/wiki/Markdown).
+
+![](images/GitHub_view_list.png)
+
+To edit this file, you can click on the pencil icon above the body of the file (between the box 'History' and the bin icon). This will take you to a text editor within GitHub.
+
+![](images/GitHub_edit_list_top.png)
+
+I have edited the file to now include 'Tea' to the shopping list. There is no need to save or stage the file when editing directly from GitHub; we can just commit it directly to the master branch. This option is at the bottom of the page.
+
+![](images/GitHub_edit_list_bottom.png)
+
+Remember to add a meaningful message of the commit change. Above I have committed directly to the master branch. It is also possible to create a new branch for the commit -- we will look at branches [in the next section](#branches). In the mean time, try editing your README.md file directly in GitHub (note -- make sure that you do not have any saved or unpushed changes to README.md on your local computer).
+
+> **Exercise:** *Edit your README.md file directly from GitHub, then commit the change.*
+
+When you are finished committing the change that you made to README.md on GitHub, go back to GitKraken. The 'Pull' button on your tool bar will take the updated commit history from GitHub and incorporate it back into GitKraken, and the updated README.md should automatically show up on your computer when you open it.
+
+> **Exercise:** *Pull the changes you made to README.md on GitHub to GitKraken.*
 
 That's all there is to it. You now have all of the tools that you need to save changes to a project repository, commit them to git, and push to and pull from GitHub. This is all that you need for working independently to safely back up and record all of the changes in a project that you are working on. A good work flow is to save the files that you work on frequently, and keep GitKraken (or a terminal) open in the background. Then, whenever you feel like you have made some important changes to your files (e.g., a new paragraph, some new code that works), commit the change and push it to GitHub. In addition to backing up the history if all of your project development, it is also nice to have a record of your progress over time. If you have any difficulty with these instructions, you can submit a question to the 'version_control' [issues](https://github.com/bradduthie/version_control/issues). Next, I will explain how to use branching in git.
 
