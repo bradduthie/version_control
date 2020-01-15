@@ -5,3 +5,4 @@ Shopping list this week
 - Porridge
 - Bread
 - Lettuce
+- Tea
