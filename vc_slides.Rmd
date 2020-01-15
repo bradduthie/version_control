@@ -81,16 +81,16 @@ urlcolor: blue
 
 Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscript drafts, etc.
 
-## Full annotated timeline of folder changes (GitHub)
-
-\begin{center}
-\includegraphics[width=300px]{images/vc_timeline_intro.png}
-\end{center}
-
 ## Full annotated timeline of folder changes (GitKraken)
 
 \begin{center}
 \includegraphics[width=300px]{images/GitKraken_vc_timeline.png}
+\end{center}
+
+## Full annotated timeline of folder changes (GitHub)
+
+\begin{center}
+\includegraphics[width=300px]{images/vc_timeline_intro.png}
 \end{center}
 
 ## Parallel versions ('branches') of a folder (GitKraken)
