@@ -276,6 +276,8 @@ In the above screenshot, the 'vc_notes.Rmd' file has been staged, while the the 
 
 Committing the staged file is easy in GitKraken. Simply add a commit message. In the above example, this message is 'Making a commit in Gitkraken', with further (optional) description in the message below. In general, it is a good idea to make commit messages meaningful, so that you can understand the history of changes in a repository and easily refer back to key points in development (e.g., "Add new linear model analysis" or "Make edits to first paragraph of manuscript"). In practice, [it's easy to get lazy](https://xkcd.com/1296/) with this. To finalise the commit in GitKraken, just click the big green 'Commit' button. You will then see another addition to your commit history in the GitKraken interface (another cyan circle added to the chain). 
 
+Note that you can always undo or redo commits (or most other actions) in GitKraken using the buttons on the toolbar. 
+
 One last thing with respect to staging and committing files. One very useful feature of git is the ability to see changes that are made to files from one commit to the next. You can do this in GitKraken simply by clicking the staged, unstaged, or already committed file. What you'll see is a record of the changes that have been made since the previous commit.
 
 ![](images/GitKraken_4.png)
@@ -373,7 +375,13 @@ The new branch 'restructure' starts off in the exact same place as the old 'mast
 
 <br>
 
-The above now shows two branches, with 'restructure' diverging from the main 'master' branch. If you want to go back and look at where you left off with the master branch, you can just double click on 'master' to the left of the commit history. When you do this, your repository will automatically revert back to what it looked like at this point in time. **Don't panic if things change**; if you have added files since starting a new branch, they won't be here when you go back to master, but still exist in the new branch. The way this works behind the scenes is that git stores a hidden folder in your git repository called `.git` (I've told my operating system to show hidden files, so you can see this below). 
+Switching between branches is easy. The toolbar below shows that we are on the branch "restructure". To switch to a different branch, simply click on the pulldown and select the one that you want. Before you do this,  **make sure that you do not have any uncommitted changes on the branch from which you are changing** (GitKraken will warn you if you try).
+
+![](images/GitKraken_top.png)
+
+<br>
+
+Note that when you switch between branches, your repository will automatically revert back to what it looked like at this point in time. **Don't panic if things change**; if you have added files since starting a new branch, they won't be here when you go back to master, but still exist in the new branch. The way this works behind the scenes is that git stores a hidden folder in your git repository called `.git` (I've told my operating system to show hidden files, so you can see this below). 
 
 ![](images/Git_hidden.png)
 
@@ -387,17 +395,21 @@ Within this hidden folder, all of the history and branches are stored (**don't d
 
 Back in GitKraken, you can shift between branches 'master' and 'restructure' as you wish by clicking on them. 
 
+> **Exercise:** *In a text editor, make some more changes to README.md on your new branch, then commit them. Keep README.md open, but go back to GitKraken and checkout the master branch. Look at README.md again to see what has changed, then checkout your new branch again.*
+
 For now, I will only make changes to 'restructure', using it as a place to experiment with new changes to the repository. I'll leave 'master' as it is, but it is entirely possible to have multiple branches with changes being made independently on each. For large projects (e.g., [an R package](https://github.com/ConFooBio/gmse/branches) with code, documentation, and a manuscript), I'll typically have a master branch of publication quality (`master`), a development branch where everything appears to be working (`dev`), a branch where revisions are taking place (`rev`), and several temporary branches for experimenting with new writing or code.
 
-After adding some commits to the branch 'restructure', I might be satisfied with the changes to the repository and therefore want to merge the 'restructure' branch back into the 'master' branch. Merging means incorporating the changes made in one branch into another branch; this works seamlessly when the branch being merged into has not changed (i.e., if after creating and committing on the new branch 'restructure', the original 'master' branch remains untouched). Merging gets slightly more tricky if commits have been made to both branches since the time of branching, but more on this in a moment. To merge in GitKraken, make sure that you are on the branch that you want to merge *to* (i.e., the branch where you have *not* made the changes that you are satisfied with, but the one that you want to send them to). This is shown in the top toolbar.
+After adding some commits to the branch 'restructure', I might be satisfied with the changes to the repository and therefore want to merge the 'restructure' branch back into the 'master' branch. Merging means incorporating the changes made in one branch into another branch; this works seamlessly when the branch being merged into has not changed (i.e., if after creating and committing on the new branch 'restructure', the original 'master' branch remains untouched). Merging gets slightly more tricky if commits have been made to both branches since the time of branching, but more on this in a moment. To merge in GitKraken, make sure that you are working on the branch that you want to merge *to* (i.e., the branch where you have *not* made the changes that you are satisfied with, but the one that you want to send them to). This is shown in the top toolbar.
+
+<br>
 
 ![](images/GitKraken_top.png)
 
 <br>
 
-The top toolbar above shows that I am on the branch 'restructure', so I want to click the down arrow on the 'restructure' pull down and switch to 'master'. Next, find the 'restructure' branch in the commit timeline (rectangle box to the left of the cyan cicles), right click, and select 'merge restructure into master'.  You should now see that the changes have been moved into 'master', and the branches 'master' and 'restructure' are now identical; you can continue to make commits on either branch, or, if there is no longer any need for the 'restructure' branch, it can be deleted by right clicking on it and selecting 'delete restructure' (note, there is nothing special about the branch named 'master'; you could equally well use it as a working branch and merge changes that you like into a branch named 'stable' or 'final', or something similar).
+The top toolbar above shows that I am on the branch 'restructure', so I want to click the down arrow on the 'restructure' pull down and switch to 'master'. Next, find the 'restructure' branch in the commit timeline (rectangle box to the left of the cyan cicles), right click, and select 'merge restructure into master'. You should now see that the changes have been moved into 'master', and the branches 'master' and 'restructure' are now identical; you can continue to make commits on either branch, or, if there is no longer any need for the 'restructure' branch, it can be deleted by right clicking on it and selecting 'delete restructure' (note, there is nothing special about the branch named 'master'; you could equally well use it as a working branch and merge changes that you like into a branch named 'stable' or 'final', or something similar).
 
-This explains everything about branching and merging, which is a very useful tool once you get used to it. It allows you to quickly start new experimental pathways in a project and make big changes without fear of disrupting anything. When you collaborate, if different people are working on different aspects of a project, each can work on a separate branch to be merged later. You can view a tree of branch history on GitHub in the 'insights' then 'networks' tab in a repository (e.g., [in the vegan R package](https://github.com/vegandevs/vegan/network)). If you're working with multiple collaborators who are all pulling from and pushing to GitHub, making commits, and creating and merging branches (or if you're doing all of these things yourself with multiple branches), things can start to look messy (for another example, see the [Rmarkdown repository](https://github.com/rstudio/rmarkdown/network) in Rstudio). In GitKraken, this is what it can look like with only two people and three branches.
+Branching allows you to quickly start new experimental pathways in a project and make big changes without fear of disrupting anything. When you collaborate, if different people are working on different aspects of a project, each can work on a separate branch to be merged later. You can view a tree of branch history on GitHub in the 'insights' then 'networks' tab in a repository (e.g., [in the vegan R package](https://github.com/vegandevs/vegan/network)). If you're working with multiple collaborators who are all pulling from and pushing to GitHub, making commits, and creating and merging branches (or if you're doing all of these things yourself with multiple branches), things can start to look messy (for another example, see the [Rmarkdown repository](https://github.com/rstudio/rmarkdown/network) in Rstudio). In GitKraken, this is what it can look like with only two people and three branches.
 
 
 ![](images/GitKraken_multibranch.png)
