@@ -1,6 +1,6 @@
 ---
 title: "Version control for reproducible science"
-subtitle: "https://stir.ac.uk"
+subtitle: "https://bradduthie.github.com/version_control/vc_slides.pdf"
 author: "Brad Duthie"
 date: "16 January 2020"
 output:
@@ -13,17 +13,30 @@ urlcolor: blue
 ---
 
 
+## Focus of this afternoon
+
+\begin{itemize}
+\setlength\itemsep{0.8em}
+\item Understand what version control is and how it can be integrated into your work flow \pause
+\item Focus on practical skills for research
+\begin{itemize}
+\item Learn and reinforce knowledge on how to use \textbf{key skills} effectively
+\item Focus on \href{https://github.com}{GitHub} and \href{https://gitkraken.com}{GitKraken} software \pause
+\end{itemize}
+\item Hands-on practice setting up and using version control in your own work with \href{https://bradduthie.github.io/version_control/vc_notes.html}{accompanying notes for guidance}
+\end{itemize}
+
 ## Rough outline of version control workshop
 
 \begin{enumerate}
-\setlength\itemsep{0.8em}
-\item \textbf{14:00} What is version control, and why use it?
-\item \textbf{14:20} Getting set up -- good file management
-\item \textbf{14:30} The \href{https://www.gitkraken.com/}{GitKraken} interface and simple commits
-\item \textbf{15:00} Setting up \href{https://www.github.com}{GitHub}, pushing and pulling
-\item \textbf{15:30} Branching using \href{https://www.gitkraken.com/}{GitKraken}
-\item \textbf{16:00} Merging and merge conflicts
-\item \textbf{16:30} Independent work using version control
+\setlength\itemsep{0.6em}
+\item What is version control, and why use it?
+\item Getting set up -- good file management
+\item The \href{https://www.gitkraken.com/}{GitKraken} interface and simple commits
+\item Setting up \href{https://www.github.com}{GitHub}, \underline{pushing} and \underline{pulling}
+\item \underline{Branching} using \href{https://www.gitkraken.com/}{GitKraken}
+\item \underline{Merging} and \underline{merge conflicts}
+\item Independent work using version control
 \end{enumerate}
 
 ## What is version control, and why use it?
@@ -68,16 +81,16 @@ urlcolor: blue
 
 Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscript drafts, etc.
 
-## Full annotated timeline of folder changes (GitHub)
-
-\begin{center}
-\includegraphics[width=300px]{images/vc_timeline_intro.png}
-\end{center}
-
 ## Full annotated timeline of folder changes (GitKraken)
 
 \begin{center}
 \includegraphics[width=300px]{images/GitKraken_vc_timeline.png}
+\end{center}
+
+## Full annotated timeline of folder changes (GitHub)
+
+\begin{center}
+\includegraphics[width=300px]{images/vc_timeline_intro.png}
 \end{center}
 
 ## Parallel versions ('branches') of a folder (GitKraken)
@@ -193,7 +206,7 @@ Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscrip
 
 ## Objectives: using version control
 
-\textbf{Guided walkthrough of setting up a project in \href{http://github.com}{GitHub} and \href{http://gitkraken.com}{GitKraken} to manage a project with version control.} \pause
+\textbf{Guided walkthrough of setting up a project in \href{http://github.com}{GitHub} and \href{http://gitkraken.com}{GitKraken} to manage a project with version control.}
 
 \vspace{4mm}
 \hrule
