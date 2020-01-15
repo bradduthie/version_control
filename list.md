@@ -5,6 +5,3 @@ Shopping list this week
 - Porridge
 - Bread
 - Lettuce
-- Tomatoes
-- Tea
-- Limes
