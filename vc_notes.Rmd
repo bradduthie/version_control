@@ -42,8 +42,12 @@ Contents
     4. [Branches in git](#branches)
     5. [Dealing with merge conflicts](#step6)
 
-- [How to use git in GitHub](#how_use_gh)
-- [Linking your repository with GitHub](#ghlink)
+- [Additional topics](#more)
+
+    1. [Linking your repository with GitHub](#ghlink)
+    2. [Cloning and forking from GitHub](#clone_fork)
+    3. [Ignoring some git files](#ignore)
+
 - [Additional resources](#whatelse)
 
 ********************************************************************************
@@ -51,7 +55,7 @@ Contents
 <a name="what_is_vc">Introduction: What is version control?</a>
 ================================================================================
 
-[Version control](https://en.wikipedia.org/wiki/Version_control) is any system that records changes made within a set of files over time so that different versions of files can be managed and, if necessary, recovered. **Put more intuitively**, version control is a way of taking a snapshot in time (called a 'commit') of all the files in one of your folders (called 'repositories'); as you make changes to the files within your folder, you can always come back to previous snapshots that you've taken (if, e.g., you make a change that you regret, or need information from a previous point in time). You can even have multiple different versions of the same folder existing in parallel (called branches). You can think of it as an extra step on top of 'saving' a file -- a step that solidifies a key point in time for your work, records how it changed from previous and subsequent points in time, and records who made the change, when, and why.
+[Version control](https://en.wikipedia.org/wiki/Version_control) is any system that records changes made within a set of files over time so that different versions of files can be managed and, if necessary, recovered. **Put more intuitively**, version control is a way of taking a snapshot in time (called a 'commit') of all the files in one of your folders (called 'repositories'). As you make changes to the files within your folder, you can always come back to previous snapshots that you've taken (if, e.g., you make a change that you regret, or need information from a previous point in time). You can even have multiple different versions of the same folder existing in parallel (called branches). You can think of it as an extra step on top of 'saving' a file -- a step that solidifies a key point in time for your work, records how it changed from previous and subsequent points in time, and records who made the change, when, and why.
 
 Version control is indispensable for large coding projects with multiple developers collaborating on the same code, but it's also a very useful tool for the workflow of scientific research. Using version control can allow you to better manage data files, analysis files (e.g., R code), manuscript files, and more in a way that keep things clean and removes the anxiety of losing track of which file is the 'right' one. 
 
@@ -155,7 +159,7 @@ The above is a list of all of the files in the current working directory, so, e.
 /home/brad/Dropbox/teaching/workshops/version_control/vc_notes.html
 ```
 
-Note that there is one sub-folder (which has no extension such as .pdf or .Rmd) named 'images', which is where I have saved all of the images for these notes and [accompanying slides](https://bradduthie.github.io/version_control/vc_slides.pdf).
+Note that there is a sub-folder (which has no extension such as .pdf or .Rmd) named 'images' (and also one named 'ignored_folder'), which is where I have saved all of the images for these notes and [accompanying slides](https://bradduthie.github.io/version_control/vc_slides.pdf).
 
 ```{r}
 list.files(path = "images", include.dirs = TRUE); 
@@ -422,7 +426,9 @@ Sometimes, merging between branches can create minor (but never disastrous!) iss
 5. <a name="step6">Dealing with merge conflicts</a>
 --------------------------------------------------------------------------------
 
-Generally, git is very good about merging branches. It can recognise when new files have been added to each branch, and should preserve both of them during the merge; it can even recognise when different lines of the same text file have changed on each branch, and preserve these changes in a merged file. Sometimes, however, different branches will attempt to change the same lines of a file. When this happens, merging one branch into another will generate a 'merge conflict'. That is, git cannot determine what the merged line should be because each branch is giving it different information. The first thing to keep in mind if this happens is that [there is no reason to panic](https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/merge-conflicts). You haven't broken anything, and the worst thing that can happen, realistically, is that you have to either undo the merge attempt or revert to your most recent commits on each branch. But usually what happens instead is that git will helpfully show you the problem in the text file (by changing the text file to show you the conflict -- i.e., it writes what each branch wants the line to read as, so you can compare and decide) and you'll be able to figure out what you want the change to actually be. Cleverly, the way to deal with the merge conflict is therefore to change the text in the conflict file and *then* commit the change you've made (i.e., 'fixing' the merge conflict is resolved with a new commit, which then becomes part of your commit history just like any other commit). 
+Merge conflicts occur when there are differences between two files that git cannot resolve on its own during a merge. This tends to happen when you (or you and your collaborators) have been working on two different branches separately, and changes have been made to the same file that are in conflict. If there is any doubt, then git will not asume that changes from one branch take priority over another. Hence, where merge conflicts occur, you will need to inspect the cause of conflict and decide how to resolve it by choosing what the merged file contents should be. 
+
+Generally, git is actually very good about merging branches. It can recognise when new files have been added to each branch, and should preserve both of them during the merge; it can even recognise when different lines of the same text file have changed on each branch, and preserve these changes in a merged file. Sometimes, however, different branches will attempt to change the same lines of a file. When this happens, merging one branch into another will generate a merge conflict. The first thing to keep in mind if this happens is that [there is no reason to panic](https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/merge-conflicts). You haven't broken anything, and the worst thing that can happen, realistically, is that you have to either undo the merge attempt (easy in GitKraken) or revert to your most recent commits on each branch. But usually what happens instead is that git will helpfully show you the cause of the conflict in the text file (by changing the text file to show you the conflict -- i.e., it writes what each branch wants the line to read as, so you can compare and decide). You will then be able to figure out what you want the change to actually be. Cleverly, the way to deal with the merge conflict is therefore to change the text in the conflict file and *then* commit the change you've made (i.e., 'fixing' the merge conflict is resolved with a new commit, which then becomes part of your commit history just like any other commit). 
 
 I'll intentionally generate a merge conflict so you can see how this is dealt with in git in GitKraken and the command line. First, I'll initialise a new file called `list.md` (this is an example of a [markdown file](https://en.wikipedia.org/wiki/Markdown), the same kind used for GitHub [README](https://github.com/StirlingCodingClub/studyGroup/blob/gh-pages/README.md) files), which will have the text below (see the file [here](https://github.com/bradduthie/version_control/blob/master/list.md)).
 
@@ -437,6 +443,8 @@ Shopping list this week
 - Tomatoes
 ```
 
+> **Exercise** *Create your own text file (e.g., .txt, .md, .mkd) and your own list as above. Save it to your repository and commit the initalised file.*
+
 I will now make two new branches named 'list_A' and 'list_B'. After creating these branches, each will be identical to the original branch in 'master', but I will edit them differently to generate a merge conflict. First I will create the two branches in GitKraken as explained in the [above section](#branches). This is what it looks like in GitKraken.
 
 ![](images/GitKraken_list_branches.png)
@@ -448,6 +456,8 @@ You can see that I am now on the 'list_B' branch from the upper left corner (gre
 ![](images/GitKraken_two_list_branches.png)
 
 <br>
+
+> **Exercise:** *Create your own two branches in GitKraken. Checkout the first branch, make several edits to your list, save, and commit. Then, checkout the second branch, make several edits, save and commit. You now should have two branches with a file that will cause a merge conflict.*
 
 You can see the two different branches coming off of the master branch, each with a commit message that explains the change. I will now attempt to merge list_A, then list_B back into the master branch. Merging the branch list_A produces no conflicts; the branch merges fine as normal. But when I then try to merge branch list_B into master, GitKraken warns me that there is a merge conflict. Again, it's worth emphasising that there is no need to panic here; nothing is going to be lost, and GitKraken immediately presents me with the option to abort the merge (note the big red button below).
 
@@ -469,49 +479,12 @@ The GitKraken environment therefore shows you, side-by-side, the branch you're m
 
 That's it! Note that merge conflicts might also occur when collaborating with others who are working in the same repository and on the same files. While git is generally good about figuring out where everything should go, if the same line is changed in a different way on a file, a merge conflict will inevitably arise.
 
+<a name = "more">Additional topics</a>
 
-<a name="how_us_gh">How to use git in GitHub</a>
-================================================================================
-
-In [GitHub](http://github.com), the process of creating, making changes to, and comitting files is fairly straightforward, and it's possible to create and manage a repository entirely within GitHub in the browser. The downside to this approach is that you cannot actually run code in GitHub, as you can in Rstudio or some other program. You cannot create a DOCX or PDF file for a manuscript, or run your R analysis, in GitHub. Hence, using git in GitHub should probably be thought about as an occasional tool to use for editing when away from your office computer, or just need a very quick fix to something to pull from GitHub later. To create a new file, simply go to your GitHub repository and click the button "Create new file".
-
-![](images/GitHub_create_file.png)
-
-<br>
-
-This will take you to a new screen where you can start writing directly in your browser, and you can save the file as whatever name you want. When you're finished, you can scroll to the bottom of the page to make a commit.
-
-![*In general, it is a good idea to try to come up with an informative commit message. Traditionally, git commit messages are written in present tense.*](images/GitHub_commit.png)
-
-<br>
-
-Unlike using tools outside of your browser such as GitKraken or the command line, there is no need to [push to or pull](#step4) anything from GitHub because you're making changes *directly to GitHub*, so the edits made to files are automatically saved into GitHub. **It is important to note, however, that changes you make on GitHub need to be pulled** (i.e., downloaded) onto your local computer *before* you start making changes locally -- e.g., in Rstudio. They won't appear automatically.
-
-With no need to push or pull in GitHub itself, we can move to using branches in GitHub. You can create a branch whenever you edit a file by selecting the 'Create a **new branch** for this commit and start a pull request' radio button below your commit message. 
-
-![](images/GitHub_create_new_branch.png)
-
-<br>
-
-Creating a new branch will immediately take you to the pull request screen below. This will send a request to merge the change that you've just made with the master branch (i.e., a '[pull request](https://github.com/StirlingCodingClub/version_control/pull/1)') -- it let's you know that the branches can be merged without any [merge conflict](#step6), and shows the change that you made at the bottom of the secreen (removing 'Tomatoes' and adding 'Avacodo'). 
-
-![](images/GitHub_branching.png)
-
-<br>
-
-There is no need to create a pull request if you do not want to -- the change that you have made has already created a new branch. You now have two different versions of the repository, and can switch between them. To switch between branches in GitHub, go to [the repository](https://github.com/StirlingCodingClub/version_control) and find the pull down that says 'Branch:'. You should be able to switch to the branch 'avocado' to see what the repository looks like on this branch. 
-
-![*An example of switching to a different branch*](images/GitHub_branch_2.png)
-
-<br>
-
-To merge the 'avacado' branch into the base 'master' branch, you would go into the [pull request](https://github.com/StirlingCodingClub/version_control/pull/1) and click the green button 'Merge pull request'. I will explain merging more in the next section explaining [branching](#branches) and [merge conflicts](#step6). In the mean time, note that we now have two different versions (branches) of the same repository, in which the file 'list.md' differs. In the master branch, the last item on our list is 'Tomatoes', whereas in the avocado branch, the last item on our list is 'Avocado'.
-
-
-<a name="ghlink">Linking an existing repository with GitHub</a>
+1. <a name="ghlink">Linking an existing repository with GitHub</a>
 --------------------------------------------------------------------------------
 
-**If you have already initialised a GitHub repository within GitKraken, then this step is unnecessary, and you can [proceed to step 3](#step3)**. Otherwise, to link an existing repository to your GitHub account within GitKraken, first go to GitHub and login. Next find and click the button that looks like the one below.
+To link an existing repository to your GitHub account within GitKraken, first go to GitHub and login. Next find and click the button that looks like the one below.
 
 ![](images/GitHub_new.png)
 
@@ -561,7 +534,78 @@ You can then push all of your files to the GitHub repository with the command be
 brad@duthie-pc:~/Dropbox/projects/StirlingCodingClub/version_control$ git push -u origin master
 ```
 
-You should now have a git repository up and running on your local machine, and a linked version on GitHub. Next I will explain how to add and commit changes to files.
+You should now have a git repository up and running on your local machine, and a linked version on GitHub. 
+
+2. <a name = "clone_fork">Cloning and forking from GitHub</a>
+--------------------------------------------------------------------------------
+
+One nice feature of GitHub is that it allows you to make a copy of any public repository and add it to your own GitHub list of repositories. There are two ways to do this; you can fork or clone a repository that you find on GitHub. For example, we might want to have our own copy of the 'ggplot2' repository from Tidyverse.
+
+![](images/GitHub_fork.png)
+
+The option to fork the repository is in the upper right corner, while the option 'Clone or download' is shown in the green button on the lower right. Forking and cloning are very similar; both get you the full repository. Both effectively clone someone else's repository to your own GitHub repository list, while still retaining the full commit history. You can make whatever changes you want to the forked repository, but the link to the original version will remain visible, and this can make it easier to suggest changes (i.e., send a 'pull request') to the original author(s). 
+
+The repository that you have forked on GitHub will not be available to you on your computer until you also clone it. With GitKraken, it is easy to clone a repository that you have forked. First click on the folder outline in the toolbar, just as you would do when [initialising a new repository](#step1).
+
+![](images/GitKraken_top.png)
+
+<br> 
+
+This time, choose the 'Clone' option on the left tab, and 'GitHub.com' in the middle tab. Choose a location on your computer where you want the cloned repository to go, then look through the listed options to the right of 'Repository to Clone'. You should find the repository that you forked in GitHub.
+
+![](images/GitKraken_forked.png)
+
+<br> 
+
+In the above, the forked 'ggplot2' is now available. When you click 'Clone the repo!', the whole repository will be downloaded to your computer. If you want to see the whole history of the repository, go to 'Open' in GitKraken and find the folder on your computer. You should see the entire project history on GitKraken, and be able to make edits and push them to your forked repository on GitHub.
+
+> **Exercise:** *Find an R package or other repository that interests you on GitHub and fork it. In GitKraken, clone the repository to a location on your own computer. Make some small changes to the repository and commit them in GitKraken, then push the commit to your forked repository on GitHub.*
+
+Cloning a repository directly from GitHub is similar. If, for example, I wanted to clone the [bookdown](https://github.com/rstudio/bookdown) repository, then I could click the green button 'Clone or download'. I could download the package as a compressed file, but it's easier to copy the URL and clone through GitKraken.
+
+![](images/GitKraken_clone.png)
+
+<br> 
+
+Above, I go back to the Repository Management window, but this time choose to 'Clone' and 'Clone with URL'. On the right, I specify a path on the computer where I want the repository to be located and the URL taken from GitHub. After clicking 'Clone the repo!' GitKraken will clone the entire repository to the specified path on my computer. The downside to this is that you will need to manually connect your repository to GitHub if you want to push and pull. Hence, I recommend forking repositories.
+
+3. <a name="ignore">Ignoring some git files</a>
+--------------------------------------------------------------------------------
+
+Sometimes you might want to have files in your repository that are not tracked with git. For example, if you have one or more especially large files (e.g., over 100 MB), or files containing sensitive information, you might not want to push these files to GitHub. To force git to ignore some files, you need to create a text file called '.gitignore' and save it within your git repository (not inside a subfolder within the repository). The best way to do this is to open a text editor (e.g., NotePad or Textedit, but Rstudio should also work) and type each file that you want git to ignore on its own line. Below [is an example](https://github.com/ConFooBio/gmse/blob/master/.gitignore) of a .gitignore file.
+
+```
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+src/*.o
+src/*.so
+src/*.dll
+inst/doc
+notebook/ms/comments
+notebook/ms/docx_template.docx
+notebook/ms/ms.docx
+notebook/ms/ms.pdf
+notebook/ms/.~lock.ms.docx#
+notebook/ms/Rd1_comments*
+README.md~
+index.md~
+```
+
+Note that there are some shortcuts that allow you to tell git to ignore multiple files at once. For example, the asterisk on the line showing `notebook/ms/Rd1_comments*` tells git to ignore anything in a file or subfolder that starts with `notebook/ms/Rd1_comments` (in practice, anything in the folder 'Rd1_comments', which is inside the folder 'ms', which is inside the folder 'notebook'). If I wanted git to ignore everything in the folder 'notbook', then I could add the line `notebook*` (and remove all of the other lines that start with `notebook`). Similarly, the line showing `src/*.o` tells git to ignore any file with the extension '.o' that is located inside the folder 'src' (e.g., `src/file1.o` and `src/file2.o` would be ignored). 
+
+> **Exercise:** *Create and save a .gitignore file that ignores folder in your repository. Stage and commit the file in GitKraken, then add some files to the ignored folder to confirm that git is ignoring them.*
+
+You can see the [.gitignore](https://github.com/bradduthie/version_control/blob/master/.gitignore) file for this repository here (though obviously not anything in the folder 'ignored_folder').
+
+Note that **GitHub does not allow you to push files larger than 100 MB**, but there are [ways of dealing with especially large files](https://help.github.com/en/github/managing-large-files/working-with-large-files) aside from just ignoring them. It is also worth mentioning that there are no limits in GitHub on the number of total files or repositories that you have, or the total amount of space you use (as of the time of writing, you just can't push files larger than 100 MB).
+
+********************************************************************************
+
+> **Exercise:** *Initialise a new repository somewhere on your computer using GitKraken, then add all of the files relevant to one of your research projects (e.g., all data, analysis, and writing for a thesis chapter). Try working from this repository while using control in GitKraken and pushing and pulling from GitHub (you might want to initialise the repository as private).*
+
+********************************************************************************
 
 <a name="whatelse">Additional resources</a>
 ================================================================================
