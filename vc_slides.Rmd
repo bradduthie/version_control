@@ -26,6 +26,12 @@ urlcolor: blue
 \item Hands-on practice setting up and using version control in your own work with \href{https://bradduthie.github.io/version_control/vc_notes.html}{accompanying notes for guidance}
 \end{itemize}
 
+\vspace{4mm}
+\hrule
+\vspace{4mm}
+
+https://bradduthie.github.com/version_control/vc_slides.pdf
+
 ## Rough outline of version control workshop
 
 \begin{enumerate}
@@ -36,6 +42,7 @@ urlcolor: blue
 \item Setting up \href{https://www.github.com}{GitHub}, \underline{pushing} and \underline{pulling}
 \item \underline{Branching} using \href{https://www.gitkraken.com/}{GitKraken}
 \item \underline{Merging} and \underline{merge conflicts}
+\item \underline{Forking} and \underline{cloning} using \href{https://www.github.com}{GitHub}
 \item Independent work using version control
 \end{enumerate}
 
@@ -51,7 +58,7 @@ urlcolor: blue
 \setlength\itemsep{1em}
 \item Software that records changes you make to files over time
 \begin{itemize}
-\item Manage different {\it versions} of files (no need to 'Save As...')
+\item Manage different {\it versions} of files (no need to `Save As...')
 \item Recover old files, keep track of file changes
 \item Collaborate with others on shared files
 \end{itemize}
@@ -116,7 +123,7 @@ Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscrip
 
 \begin{itemize}
 \setlength\itemsep{0.8em}
-\item \textbf{Organises files} by avoiding 'save as' multiple versions 
+\item \textbf{Organises files} by avoiding `save as' multiple versions 
 \begin{itemize}
 \item analysis\_1.R
 \item analysis\_2.R
@@ -198,11 +205,31 @@ Folders (a.k.a, 'repositories') include all data files, R code, notes, manuscrip
 \end{column}
 \end{columns}
 
-\vspace{8mm}
-\hrule
-\vspace{2mm}
+## This is what we are avoiding {.smaller}
 
-\textbf{\href{https://stirlingcodingclub.github.io/version_control/vc_notes.html}{Accompanying notes to these slides} are available in the \href{https://github.com/StirlingCodingClub/version_control}{version\_control} repository, and include instructions for using the command line interface, and for editing directly in GitHub.}
+\scriptsize
+
+```
+brad@duthie-pc:~/Dropbox/teaching/workshops/version_control$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+    modified:   vc_notes.html
+    modified:   vc_slides.Rmd
+    modified:   vc_slides.pdf
+
+no changes added to commit (use "git add" and/or "git commit -a")
+brad@duthie-pc:~/Dropbox/teaching/workshops/version_control$ git add *
+brad@duthie-pc:~/Dropbox/teaching/workshops/version_control$ git commit -m  "An example commit to demonstrate what the command line environment looks like"
+[master cf544ae] An example commit to demonstrate what the command line environment looks like
+ 3 files changed, 765 insertions(+), 585 deletions(-)
+ rewrite vc_notes.html (65%)
+```
+
+\normalsize
 
 ## Objectives: using version control
 
